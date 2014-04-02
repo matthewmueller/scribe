@@ -10,8 +10,8 @@ Using component:
 
 Or you can use the `dist/` packages which export `window.scribe`:
 
-  * dist/scribe.js: 144kb
-  * dist/scribe.min.js: 40kb
+  * `dist/scribe.js`: 144kb
+  * `dist/scribe.min.js`: 40kb
 
 ## Building scribe from scratch
 
