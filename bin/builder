@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/**
+ * Module Dependencies
+ */
+
+var fs = require('fs');
+var readFile = fs.readFileSync;
+var writeFile = fs.writeFileSync;
+var path = require('path');
+var join = path.join
+var amd = require('amdclean');
+var scribepath = require.resolve('scribe/scribe.js');
+var src = readFile(scribepath, 'utf8');
+
+/**
+ * Clean options
+ */
+
+var options = {
+  globalObjectName: 'modules',
+  globalObject: true,
+  rememberGlobalObject: false,
+  removeUseStricts: false,
+  code: src
+};
+
+/**
+ * Clean scribe
+ */
+
+src = amd.clean(options);
+src = src.replace('var modules = {}', 'module.exports = modules = {}');
+
+/**
+ * Write file
+ */
+
+writeFile('scribe.js', src, 'utf8');

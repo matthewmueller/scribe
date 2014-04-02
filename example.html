@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>scribe component</title>
+  <style>
+    [contenteditable] {
+      outline: none;
+      border: 1px solid #ccc;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>scribe component</h1>
+  <div id="editor" contenteditable="true"></div>
+  <script src="build/build.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var Scribe = require('scribe');
+    var scribe = new Scribe(editor)
+  </script>
+</body>
+</html>
