@@ -3,10 +3,11 @@ build:
 	@component build
 
 install:
-	@npm install
-	# npm shits a brick when trying to install scribe, so we'll do it by hand
+	@npm install -s
+	@# npm shits a brick when trying to install scribe, so we'll do it by hand
 	@mkdir -p node_modules/scribe
-	@curl -L https://github.com/guardian/scribe/archive/v0.1.4.tar.gz | tar zx --strip 1 -C node_modules/scribe
+	@curl -s -L https://github.com/guardian/scribe/archive/v0.1.4.tar.gz \
+		| tar zx --strip 1 -C node_modules/scribe
 
 dist: build dist-build dist-minify
 
@@ -23,7 +24,7 @@ dist-minify: dist/scribe.js
 		> $<.tmp
 	@mv $<.tmp dist/scribe.min.js
 
-clean: node_modules/
-	rm -rf node_modules
+clean:
+	rm -rf build node_modules scribe.js
 
-.PHONY: build
+.PHONY: build clean

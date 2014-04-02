@@ -1,7 +1,7 @@
 {
   "name": "scribe",
   "version": "0.1.4",
-  "description": "guardian's scribe as a component",
+  "description": "guardian's scribe editor as a component",
   "main": "index.js",
   "scripts": ["index.js", "scribe.js"]
 }
