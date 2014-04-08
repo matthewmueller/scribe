@@ -21,6 +21,6 @@ Or you can use the `dist/` packages which export `window.scribe`:
 
 ## Updating scribe
 
-The goal of this project is to make it easy to keep up with upstream changes. To update the version, simply update the github release url in the Makefile:
+The goal of this project is to make it easy to keep up with upstream changes. To update the version, simply update the github release url in the Makefile and run the build above:
 
 https://github.com/MatthewMueller/scribe/blob/master/Makefile#L9
