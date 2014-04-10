@@ -1866,6 +1866,18 @@ modules['plugins_core_commands_redo'] = function () {
         });
     };
 };
+modules['plugins_core_commands_subscript'] = function () {
+    return function (scribe) {
+        var subscriptCommand = new scribe.api.Command('subscript');
+        scribe.commands.subscript = subscriptCommand;
+    };
+};
+modules['plugins_core_commands_superscript'] = function () {
+    return function (scribe) {
+        var superscriptCommand = new scribe.api.Command('superscript');
+        scribe.commands.superscript = superscriptCommand;
+    };
+};
 modules['plugins_core_commands_undo'] = function () {
     return function (scribe) {
         var undoCommand = new scribe.api.Command('undo');
@@ -1888,16 +1900,18 @@ modules['plugins_core_commands_undo'] = function () {
         });
     };
 };
-modules['plugins_core_commands'] = function (indent, insertHTML, insertList, outdent, redo, undo) {
+modules['plugins_core_commands'] = function (indent, insertHTML, insertList, outdent, redo, subscript, superscript, undo) {
     return {
         indent: indent,
         insertHTML: insertHTML,
         insertList: insertList,
         outdent: outdent,
         redo: redo,
+        subscript: subscript,
+        superscript: superscript,
         undo: undo
     };
-}(modules['plugins_core_commands_indent'], modules['plugins_core_commands_insert_html'], modules['plugins_core_commands_insert_list'], modules['plugins_core_commands_outdent'], modules['plugins_core_commands_redo'], modules['plugins_core_commands_undo']);
+}(modules['plugins_core_commands_indent'], modules['plugins_core_commands_insert_html'], modules['plugins_core_commands_insert_list'], modules['plugins_core_commands_outdent'], modules['plugins_core_commands_redo'], modules['plugins_core_commands_subscript'], modules['plugins_core_commands_superscript'], modules['plugins_core_commands_undo']);
 modules['plugins_core_events'] = function (contains) {
     return function () {
         return function (scribe) {
@@ -3006,6 +3020,8 @@ modules['scribe'] = function (EventEmitter, defaults, commands, events, replaceN
         this.use(commands.insertList());
         this.use(commands.outdent());
         this.use(commands.redo());
+        this.use(commands.subscript());
+        this.use(commands.superscript());
         this.use(commands.undo());
         this.use(events());
         var pushHistoryOnFocus = function () {

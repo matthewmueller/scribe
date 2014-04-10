@@ -1,4 +1,4 @@
-build:
+build: install
 	@./bin/builder
 	@component build
 
@@ -6,7 +6,7 @@ install:
 	@npm install -s
 	@# npm shits a brick when trying to install scribe, so we'll do it by hand
 	@mkdir -p node_modules/scribe
-	@curl -s -L https://github.com/guardian/scribe/archive/v0.1.4.tar.gz \
+	@curl -s -L https://github.com/guardian/scribe/archive/v0.1.5.tar.gz \
 		| tar zx --strip 1 -C node_modules/scribe
 
 dist: build dist-build dist-minify
