@@ -1,6 +1,6 @@
 {
   "name": "scribe",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "guardian's scribe as a commonjs modules",
   "devDependencies": {
     "amdclean": "^1.5.0"
